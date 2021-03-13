@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+
+ 
+  node:
+    build:
+      context: .
+      dockerfile: node.dev.dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - nodeapp-network
+    volumes:
+      - "./app:/src/app"
+networks:
+  nodeapp-network:
+    driver: bridge
